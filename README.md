@@ -13,13 +13,16 @@ Use Python 3.10 or later. From the repository root:
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-jupyter lab Extended_Depth_of_Field.ipynb
+jupyter lab notebooks/Extended_Depth_of_Field.ipynb
 ```
 
 Select the virtual environment's Python kernel and run all cells in order.
-The four included JPEGs are the default inputs. To use other photos, edit
+The four JPEGs in `data/examples/` are the default inputs. To use other photos, edit
 `image_paths` in the notebook. Images must be aligned, equally sized, and readable
-by OpenCV. The composite is saved as `infocus_img.jpg` in the working directory.
+by OpenCV. The composite is saved as `outputs/infocus_img.jpg`. This directory
+is created automatically and generated images are ignored by Git. Paths work
+with kernels started from either the repository root or `notebooks/`.
+Relative custom input paths should be based on `project_root`.
 
 OpenCV loads images in BGR channel order. For an RGB Matplotlib preview, use
 `cv.cvtColor(focused_image, cv.COLOR_BGR2RGB)` before plotting. Image registration,
@@ -27,8 +30,10 @@ exposure correction, and boundary blending are outside the algorithm's scope.
 
 ## Files
 
-- `Extended_Depth_of_Field.ipynb`: load, measure, compose, and preview.
-- `img_01.jpg`–`img_04.jpg`: example focus stack.
+- `notebooks/`: load, measure, compose, and preview.
+- `data/examples/`: example focus stack.
+- `outputs/`: generated images (ignored by Git).
+- `benchmarks/`: comparison scripts and validation records.
 - `requirements.txt`: runtime and notebook dependencies.
 
 ## License

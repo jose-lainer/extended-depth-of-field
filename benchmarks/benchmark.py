@@ -16,12 +16,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def load_notebook_functions():
     """Load definitions directly, so the benchmark exercises notebook code."""
-    notebook = json.loads((ROOT / 'Extended_Depth_of_Field.ipynb').read_text())
+    notebook = json.loads((ROOT / 'notebooks' / 'Extended_Depth_of_Field.ipynb').read_text())
     namespace = {'cv': cv, 'np': np}
     for cell in notebook['cells']:
         source = ''.join(cell['source'])
         if cell['cell_type'] == 'code' and source.startswith('def compute_focus_maps'):
-            exec(compile(source, str(ROOT / 'Extended_Depth_of_Field.ipynb'), 'exec'), namespace)
+            exec(compile(source, str(ROOT / 'notebooks' / 'Extended_Depth_of_Field.ipynb'), 'exec'), namespace)
     return namespace
 
 
@@ -34,7 +34,7 @@ def main():
     cv.setNumThreads(1)
     namespace = load_notebook_functions()
     optimized = namespace['focus_stack']
-    images = [cv.imread(str(ROOT / f'img_{index:02d}.jpg')) for index in range(1, 5)]
+    images = [cv.imread(str(ROOT / 'data' / 'examples' / f'img_{index:02d}.jpg')) for index in range(1, 5)]
     if any(image is None for image in images):
         raise FileNotFoundError('Missing bundled input image.')
     rng = np.random.default_rng(42)
