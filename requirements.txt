@@ -1,0 +1,5 @@
+numpy>=1.26,<3
+opencv-python-headless>=4.8,<5
+matplotlib>=3.8,<4
+jupyterlab>=4,<5
+nbclient>=0.10,<1

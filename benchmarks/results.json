@@ -1,0 +1,165 @@
+{
+  "baseline_commit": "7cbc4c9",
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "python": "3.14.7",
+  "numpy": "2.5.4",
+  "opencv": "4.14.0",
+  "opencv_threads": 10,
+  "repeats": 5,
+  "scope": "focus computation only; image reading, writing and plotting excluded",
+  "acceptance": ">=20% median runtime reduction on both bundled resolutions; exact pixels and JPEG bytes on all cases",
+  "accepted": true,
+  "cases": {
+    "bundled_full": {
+      "shape": [
+        2000,
+        1982,
+        3
+      ],
+      "samples_seconds": {
+        "original": [
+          5.367378416005522,
+          5.444865875004325,
+          5.543346541991923,
+          5.621943834004924,
+          5.413165292004123
+        ],
+        "refactored": [
+          0.14223333302652463,
+          0.12277049996191636,
+          0.13436075003119186,
+          0.12371650000568479,
+          0.14114129199879244
+        ]
+      },
+      "median_seconds": {
+        "original": 5.444865875004325,
+        "refactored": 0.13436075003119186
+      },
+      "speedup": 40.52422953682753,
+      "maximum_absolute_pixel_error": 0,
+      "jpeg_bytes_equal": true
+    },
+    "bundled_half": {
+      "shape": [
+        1000,
+        991,
+        3
+      ],
+      "samples_seconds": {
+        "original": [
+          1.54043425002601,
+          1.5194880840135738,
+          1.3194167080218904,
+          1.2674794999766164,
+          1.2906693329568952
+        ],
+        "refactored": [
+          0.032179583969991654,
+          0.034201041038613766,
+          0.03114029101561755,
+          0.030921666999347508,
+          0.035617208981420845
+        ]
+      },
+      "median_seconds": {
+        "original": 1.3194167080218904,
+        "refactored": 0.032179583969991654
+      },
+      "speedup": 41.00167078767341,
+      "maximum_absolute_pixel_error": 0,
+      "jpeg_bytes_equal": true
+    },
+    "random": {
+      "shape": [
+        31,
+        47,
+        3
+      ],
+      "samples_seconds": {
+        "original": [
+          0.0024846249725669622,
+          0.001913290994707495,
+          0.002198792004492134,
+          0.0018395420047454536,
+          0.002195000008214265
+        ],
+        "refactored": [
+          0.00010537495836615562,
+          7.262500002980232e-05,
+          0.00010487501276656985,
+          7.474998710677028e-05,
+          9.79170436039567e-05
+        ]
+      },
+      "median_seconds": {
+        "original": 0.002195000008214265,
+        "refactored": 9.79170436039567e-05
+      },
+      "speedup": 22.416935064873304,
+      "maximum_absolute_pixel_error": 0,
+      "jpeg_bytes_equal": true
+    },
+    "ties": {
+      "shape": [
+        17,
+        19,
+        3
+      ],
+      "samples_seconds": {
+        "original": [
+          0.00047083402751013637,
+          0.0004537919885478914,
+          0.0005543750012293458,
+          0.0005428330041468143,
+          0.0004184580175206065
+        ],
+        "refactored": [
+          5.0875009037554264e-05,
+          2.9291026294231415e-05,
+          0.00011879100929945707,
+          5.804200191050768e-05,
+          4.4208019971847534e-05
+        ]
+      },
+      "median_seconds": {
+        "original": 0.00047083402751013637,
+        "refactored": 5.0875009037554264e-05
+      },
+      "speedup": 9.254721255431761,
+      "maximum_absolute_pixel_error": 0,
+      "jpeg_bytes_equal": true
+    },
+    "single": {
+      "shape": [
+        31,
+        47,
+        3
+      ],
+      "samples_seconds": {
+        "original": [
+          0.0020188329508528113,
+          0.001714959042146802,
+          0.0020468750153668225,
+          0.00166095799067989,
+          0.0020621250150725245
+        ],
+        "refactored": [
+          7.520796498283744e-05,
+          4.5249995309859514e-05,
+          6.508396472781897e-05,
+          4.012498538941145e-05,
+          0.0001105000264942646
+        ]
+      },
+      "median_seconds": {
+        "original": 0.0020188329508528113,
+        "refactored": 6.508396472781897e-05
+      },
+      "speedup": 31.018899344801248,
+      "maximum_absolute_pixel_error": 0,
+      "jpeg_bytes_equal": true
+    }
+  },
+  "opencv_threads_requested": 1
+}
